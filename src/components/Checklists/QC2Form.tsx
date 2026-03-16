@@ -39,6 +39,7 @@ interface QC2FormData {
     qc2_pl200x150x9mm_box_pass: string;
     qc2_pl200x200x10mm_base_pass: string;
     qc2_corrugate_pipe_clear_pass: string;
+    qc2_pole_mounting_nuts_M16: string;
     qc2_plate_beam_2nd_fl_pass: string;
     qc2_plate_beam_head_3rd_fl_pass: string;
     qc2_plate_i_pass: string;
@@ -46,6 +47,7 @@ interface QC2FormData {
     qc2_plate_stair_landing_pass: string;
     qc2_i_bolts_beam_set_pass: string;
     qc2_pl_steel_box_plate_pass: string;
+    qc2_beam_fastening_nuts_M12: string;
     qc2_thread_code_as_pass: string;
     qc2_dowel_rebar_bend_pass: string;
     qc2_corrugate_pipe_embed_pass: string;
@@ -160,6 +162,7 @@ const QC2Form: React.FC<QC2FormProps> = ({ initialData, elementNo, projectId, el
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_pl200x150x9mm_box_pass" value="1" onChange={handleChange} checked={formData.qc2_pl200x150x9mm_box_pass === '1'} /><label className="form-check-label">PL200x150x9mm.รับกล่อง</label></div>
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_pl200x200x10mm_base_pass" value="1" onChange={handleChange} checked={formData.qc2_pl200x200x10mm_base_pass === '1'} /><label className="form-check-label">PL200x200x10mmตีนเสา</label></div>
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_corrugate_pipe_clear_pass" value="1" onChange={handleChange} checked={formData.qc2_corrugate_pipe_clear_pass === '1'} /><label className="form-check-label">ท่อคอลรูเกด ไม่ตัน</label></div>
+                            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_pole_mounting_nuts_M16" value="1" onChange={handleChange} checked={formData.qc2_pole_mounting_nuts_M16 === '1'} /><label className="form-check-label">น็อตยึดเสา M16</label></div>
                             <hr />
                         </div>
                     )}
@@ -173,6 +176,7 @@ const QC2Form: React.FC<QC2FormProps> = ({ initialData, elementNo, projectId, el
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_plate_stair_landing_pass" value="1" onChange={handleChange} checked={formData.qc2_plate_stair_landing_pass === '1'} /><label className="form-check-label">Plate รับบันได</label></div>
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_i_bolts_beam_set_pass" value="1" onChange={handleChange} checked={formData.qc2_i_bolts_beam_set_pass === '1'} /><label className="form-check-label">ชุดI-Bolts รับคานฝาก</label></div>
                             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_pl_steel_box_plate_pass" value="1" onChange={handleChange} checked={formData.qc2_pl_steel_box_plate_pass === '1'} /><label className="form-check-label">ระยะPL รับเหล็กกล่อง</label></div>
+                            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc2_beam_fastening_nuts_M12" value="1" onChange={handleChange} checked={formData.qc2_beam_fastening_nuts_M12 === '1'} /><label className="form-check-label">น็อตยึดคาน M12</label></div>
                             <hr />
                         </div>
                     )}
