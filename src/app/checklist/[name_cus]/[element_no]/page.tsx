@@ -26,6 +26,7 @@ export default function ChecklistPage() {
   const [projectId, setProjectId] = useState<string | null>(null);
   const [elementType, setElementType] = useState<'pillar' | 'beam' | 'general'>('general');
   const [elementExists, setElementExists] = useState<boolean>(true); // New state for element existence
+  const [elementTypeAll, setElementTypeAll] = useState<string | null>(null);
 
 
   const fetchChecklistInitialData = useCallback(async () => {
@@ -168,6 +169,18 @@ export default function ChecklistPage() {
   const qc1Passed = checklistData?.qc1?.qc1_result_first_check === 'Y';
   const qc2Passed = checklistData?.qc2?.qc2_result_first_check === 'Y';
 
+  if(element_no && projectId){
+    const response_part_type = async () => {
+      const ress_response_part_type = await fetch(`https://datacenter.novamodular.co.th/api/v2/find_part_type_all.php?element_no=${encodeURIComponent(element_no)}&project_id=${encodeURIComponent(projectId)}`);
+      const ress_response_part_type_json = await ress_response_part_type.json();
+      if(ress_response_part_type_json.success && ress_response_part_type_json.data[0] && ress_response_part_type_json.data[0].part_type){
+        // console.log(ress_response_part_type_json.data[0].part_type);
+        setElementTypeAll(ress_response_part_type_json.data[0].part_type);
+      }
+    }
+    response_part_type();
+  }
+
   return (
     <main className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-6xl mx-auto">
@@ -184,10 +197,19 @@ export default function ChecklistPage() {
                     <span className="text-sm font-medium text-gray-500">Project</span>
                     <span className="text-lg text-gray-800 font-semibold">{name_cus ? decodeURIComponent(name_cus) : "N/A"}</span>
                 </div>
+
                 <div className="flex flex-col">
                     <span className="text-sm font-medium text-gray-500">Element No.</span>
-                    <span className="text-lg text-gray-800 font-semibold">{element_no ? decodeURIComponent(element_no) : "N/A"}</span>
+                    {/* <span className="text-lg text-gray-800 font-semibold">{element_no ? decodeURIComponent(element_no) : "N/A"}</span> */}
+                    <span className="text-lg text-gray-800 font-semibold">
+                    {element_no 
+                      ? decodeURIComponent(
+                          element_no + (elementTypeAll ? ` (${elementTypeAll})` : '')
+                        ) 
+                      : "N/A"}
+                  </span>
                 </div>
+                
             </div>
         </div>
 
