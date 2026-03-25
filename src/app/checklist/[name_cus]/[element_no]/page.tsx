@@ -171,7 +171,7 @@ export default function ChecklistPage() {
 
   if(element_no && projectId){
     const response_part_type = async () => {
-      const ress_response_part_type = await fetch(`https://datacenter.novamodular.co.th/api/v2/find_part_type_all.php?element_no=${encodeURIComponent(element_no)}&project_id=${encodeURIComponent(projectId)}`);
+      const ress_response_part_type = await fetch(`https://datacenterpkt.novamodular.co.th/api/v2/find_part_type_all.php?element_no=${encodeURIComponent(element_no)}&project_id=${encodeURIComponent(projectId)}`);
       const ress_response_part_type_json = await ress_response_part_type.json();
       if(ress_response_part_type_json.success && ress_response_part_type_json.data[0] && ress_response_part_type_json.data[0].part_type){
         // console.log(ress_response_part_type_json.data[0].part_type);

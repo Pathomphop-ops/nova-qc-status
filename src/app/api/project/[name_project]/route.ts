@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 
 const EXTERNAL_API_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || 'https://datacenter.novamodular.co.th/api/v2';
+  process.env.NEXT_PUBLIC_API_BASE_URL || 'https://datacenterpkt.novamodular.co.th/api/v2';
 
 export async function GET(
   request: NextRequest,
