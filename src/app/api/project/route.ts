@@ -15,10 +15,15 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const apiRes = await fetch(
-      `${EXTERNAL_API_URL}/get_project_id.php?name_project=${encodeURIComponent(name_project)}`
-    );
+    const url = `${EXTERNAL_API_URL}/get_project_id.php?name_project=${encodeURIComponent(name_project)}`;
+    console.log('Fetching URL:', url); // เพิ่มบรรทัดนี้
+    
+    const apiRes = await fetch(url);
+    console.log('Response status:', apiRes.status); // เพิ่มบรรทัดนี้
+    
     if (!apiRes.ok) {
+      const errorText = await apiRes.text();
+      console.log('Error response:', errorText); // เพิ่มบรรทัดนี้
       throw new Error(`External API responded with status ${apiRes.status}`);
     }
     const data = await apiRes.json();
