@@ -3,11 +3,9 @@ import { NextResponse, NextRequest } from 'next/server';
 const EXTERNAL_API_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || 'https://datacenterpkt.novamodular.co.th/api/v2';
 
-export async function GET(
-  request: NextRequest,
-  context: { params: Promise<{ name_project: string }> }
-) {
-  const { name_project } = await context.params; // ⭐ ต้อง await params
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const name_project = searchParams.get('name_project');
 
   if (!name_project) {
     return NextResponse.json(
@@ -18,15 +16,11 @@ export async function GET(
 
   try {
     const apiRes = await fetch(
-      `${EXTERNAL_API_URL}/get_project_id.php?name_project=${encodeURIComponent(
-        name_project
-      )}`
+      `${EXTERNAL_API_URL}/get_project_id.php?name_project=${encodeURIComponent(name_project)}`
     );
-
     if (!apiRes.ok) {
       throw new Error(`External API responded with status ${apiRes.status}`);
     }
-
     const data = await apiRes.json();
     return NextResponse.json(data);
   } catch (error: any) {
