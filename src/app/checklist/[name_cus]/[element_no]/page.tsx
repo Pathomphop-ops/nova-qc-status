@@ -49,7 +49,9 @@ export default function ChecklistPage() {
       try {
         // const response = await fetch(`/api/project/${encodeURIComponent(name_cus)}`);
         // แก้เป็น
-        const response = await fetch(`/api/project?name_project=${encodeURIComponent(name_cus)}`);
+        const decodedNameCus = decodeURIComponent(name_cus);
+        // const response = await fetch(`/api/project?name_project=${encodeURIComponent(name_cus)}`);
+        const response = await fetch(`/api/project?name_project=${encodeURIComponent(decodedNameCus)}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
