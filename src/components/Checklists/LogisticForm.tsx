@@ -126,7 +126,7 @@ const LogisticForm: React.FC<LogisticFormProps> = ({ initialData, elementNo, pro
                     <div className="form-check"><input type="checkbox" className="form-check-input" name="log_welding_mark_pass" value="1" onChange={handleChange} checked={formData.log_welding_mark_pass === '1'} /><label className="form-check-label">รอยเชื่อมชิ้นงาน</label></div>
                 </div>
                 {/* Column 2 */}
-                <div className="form-section">
+                <div className="form-section"> 
                     {isPillar && (
                         <div className="pillar-field">
                             <h5 className="mb-3">Plate เสา (Pillar)</h5>
