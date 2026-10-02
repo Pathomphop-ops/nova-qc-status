@@ -197,7 +197,7 @@ const QC1Form: React.FC<QC1FormProps> = ({ initialData, elementNo, projectId, el
             <hr />
             <h5 className="mb-3">เหล็กเสริม</h5>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_dr_rebar_position_pass" value="1" onChange={handleChange} checked={formData.qc1_dr_rebar_position_pass === '1'}/><label className="form-check-label">เหล็ก DR/ ตำแหน่ง</label></div>
-            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_s01_s02_pass" value="1" onChange={handleChange} checked={formData.qc1_s01_s02_pass === '1'}/><label className="form-check-label">S01/ S02</label></div>
+            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_s01_s02_pass" value="1" onChange={handleChange} checked={formData.qc1_s01_s02_pass === '1'}/><label className="form-check-label">S01/ S02/ S03</label></div>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_diagonal_stirrup_pass" value="1" onChange={handleChange} checked={formData.qc1_diagonal_stirrup_pass === '1'}/><label className="form-check-label">ปลอกทะแยง</label></div>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_stirrup_covering_pass" value="1" onChange={handleChange} checked={formData.qc1_stirrup_covering_pass === '1'}/><label className="form-check-label">Covering เหล็กปลอก</label></div>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_main_rebar_pass" value="1" onChange={handleChange} checked={formData.qc1_main_rebar_pass === '1'}/><label className="form-check-label">เหล็กเสริมหลัก</label></div>
