@@ -39,6 +39,7 @@ interface QC1FormData {
   qc1_base_plate_box_pass: string;
   qc1_j_bolt_pass: string;
   qc1_corrugate_pipe_pass: string;
+  qc1_i_bolt_pass: string;
   qc1_plate_beam_2nd_fl_pass: string;
   qc1_plate_beam_head_3rd_fl_pass: string;
   qc1_plate_i_pass: string;
@@ -54,6 +55,9 @@ interface QC1FormData {
   qc1_shearkey_rb9_pass: string;
   qc1_plate_dr_replacement_pass: string;
   qc1_plate_around_column_3rd_fl_pass: string;
+  qc1_beam_end_s3_pass: string;
+  qc1_beam_end_s6_pass: string;
+  qc1_h01_3cpl_flat_pass: string;
   qc1_dr_rebar_position_pass: string;
   qc1_s01_s02_pass: string;
   qc1_diagonal_stirrup_pass: string;
@@ -160,6 +164,7 @@ const QC1Form: React.FC<QC1FormProps> = ({ initialData, elementNo, projectId, el
                     <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_base_plate_box_pass" value="1" onChange={handleChange} checked={formData.qc1_base_plate_box_pass === '1'}/><label className="form-check-label">เพลทตีนเสา + Box</label></div>
                     <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_j_bolt_pass" value="1" onChange={handleChange} checked={formData.qc1_j_bolt_pass === '1'}/><label className="form-check-label">เหล็ก J bolt</label></div>
                     <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_corrugate_pipe_pass" value="1" onChange={handleChange} checked={formData.qc1_corrugate_pipe_pass === '1'}/><label className="form-check-label">ท่อคอลรูเกด</label></div>
+                    <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_i_bolt_pass" value="1" onChange={handleChange} checked={formData.qc1_i_bolt_pass === '1'}/><label className="form-check-label">เหล็ก I Bolt</label></div>
                 </div>
             )}
             {isBeam && (
@@ -186,6 +191,9 @@ const QC1Form: React.FC<QC1FormProps> = ({ initialData, elementNo, projectId, el
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_shearkey_rb9_pass" value="1" onChange={handleChange} checked={formData.qc1_shearkey_rb9_pass === '1'}/><label className="form-check-label">Shearkey RB9</label></div>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_plate_dr_replacement_pass" value="1" onChange={handleChange} checked={formData.qc1_plate_dr_replacement_pass === '1'}/><label className="form-check-label">Plate ทดแทน DR</label></div>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_plate_around_column_3rd_fl_pass" value="1" onChange={handleChange} checked={formData.qc1_plate_around_column_3rd_fl_pass === '1'}/><label className="form-check-label">Plate รอบเสา (บ้าน3ชั้น)</label></div>
+            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_beam_end_s3_pass" value="1" onChange={handleChange} checked={formData.qc1_beam_end_s3_pass === '1'}/><label className="form-check-label">ปลายคาน S3</label></div>
+            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_beam_end_s6_pass" value="1" onChange={handleChange} checked={formData.qc1_beam_end_s6_pass === '1'}/><label className="form-check-label">ปลายคาน S6</label></div>
+            <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_h01_3cpl_flat_pass" value="1" onChange={handleChange} checked={formData.qc1_h01_3cpl_flat_pass === '1'}/><label className="form-check-label">H01, 3 CPL เรียบ</label></div>
             <hr />
             <h5 className="mb-3">เหล็กเสริม</h5>
             <div className="form-check"><input type="checkbox" className="form-check-input" name="qc1_dr_rebar_position_pass" value="1" onChange={handleChange} checked={formData.qc1_dr_rebar_position_pass === '1'}/><label className="form-check-label">เหล็ก DR/ ตำแหน่ง</label></div>
